@@ -38,8 +38,10 @@ describe DockingStation do
 
   describe "#dock_bike" do
     it "raises an error when station is full ", :tag do
-      bike = Bike.new
-      expect{ subject.dock_bike(bike) }.to raise_error "I iz full"
+      bike1 = Bike.new
+      subject.dock_bike(bike1)
+      bike2 = Bike.new
+      expect{ subject.dock_bike(bike2) }.to raise_error "I iz full"
     end
   end
 
