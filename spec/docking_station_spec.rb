@@ -47,20 +47,19 @@ describe DockingStation do
   #   end
   # end
 
-  describe "#dock_bike" do
-    it "raises an error when station is full" do
-      20.times { subject.dock_bike(Bike.new) }
-      expect{ subject.dock_bike(Bike.new) }.to raise_error "I iz full"
-    end
-  end
+  # describe "#dock_bike" do
+  #   it "raises an error when station is full", :tag do
+  #     20.times { subject.dock_bike(Bike.new) }
+  #     expect{ subject.dock_bike(Bike.new) }.to raise_error "I iz full"
+  #   end
+  # end
 
   describe "#dock_bike" do
-    it "allows docking when station isn't full", :tag do
+    it "allows docking when not full", :tag do
       19.times { subject.dock_bike(Bike.new) }
       bike20 = Bike.new
       subject.dock_bike(bike20)
-      expect(@@num_bikes).to eq 20
+      expect(subject.num_bikes).to eq 20
     end
   end
-
 end
