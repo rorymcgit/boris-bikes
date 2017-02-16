@@ -13,8 +13,8 @@ class DockingStation
   #@bike will only exist if a bike has already been docked
   #hence that bike will have become instance variable
     fail "I iz full" if @@num_bikes >= 20
-    @bike = bike1
     @@num_bikes += 1
+    @bike = bike1
   end
 
   attr_reader :bike
