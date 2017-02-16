@@ -23,4 +23,17 @@ describe DockingStation do
     subject.dock_bike(bike)
     expect(subject.bike).to eq bike
   end
+
+  it "shows the released bike is the same as what's been docked" do
+    bike = Bike.new
+    subject.dock_bike(bike)
+    expect(subject.release_bike).to eq bike
+  end
+
+  describe "#release_bike" do
+    it "raises an error when no bike available" do
+      expect{ subject.release_bike }.to raise_error "no bikes"
+    end
+  end
+
 end
