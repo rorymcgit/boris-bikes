@@ -7,7 +7,10 @@ class DockingStation
   end
 
   def dock_bike(bike1)
-    #what this needs to do is accept the bike instance + save it
+  #nb - Bike is created outside func.; Dock capcity = 1.
+  #this method will send error if @bike already exists
+  #@bike will only exist if a bike has already been docked
+  #hence that bike will have become instance variable
     fail "I iz full" if @bike
     @bike = bike1
   end
