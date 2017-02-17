@@ -3,12 +3,12 @@ require_relative 'bike'
 class DockingStation
 
   def initialize
-    @num_bikes = []
+    @bikes_arr = []
   end
 
   def release_bike
-    fail "no bikes" if @num_bikes.empty?
-    @num_bikes.pop
+    fail "no bikes" if @bikes_arr.empty?
+    @bikes_arr.pop
   end
 
   def dock_bike(bike1)
@@ -16,12 +16,12 @@ class DockingStation
   #this method will send error if @bike already exists
   #@bike will only exist if a bike has already been docked
   #hence that bike will have become instance variable
-    fail "I iz full" if @num_bikes.length >= 20
-    @num_bikes << bike1
+    fail "I iz full" if @bikes_arr.length >= 20
+    @bikes_arr << bike1
     @bike = bike1
   end
 
   attr_reader :bike
-  attr_reader :num_bikes
+  attr_reader :bikes_arr
 
 end
