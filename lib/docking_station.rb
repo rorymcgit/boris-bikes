@@ -2,6 +2,9 @@ require_relative 'bike'
 
 class DockingStation
 
+    attr_reader :bike
+    attr_reader :bikes_arr
+
   def initialize
     @bikes_arr = []
   end
@@ -20,8 +23,5 @@ class DockingStation
     @bikes_arr << bike1
     @bike = bike1
   end
-
-  attr_reader :bike
-  attr_reader :bikes_arr
 
 end
