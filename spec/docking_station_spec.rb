@@ -5,7 +5,6 @@ describe DockingStation do
       expect(subject).to respond_to :release_bike
     end
 
-
   # it "releases working bike" do
   #   bike = subject.release_bike
   #   expect(bike).to be_working
@@ -36,6 +35,7 @@ describe DockingStation do
     end
   end
 
+  # # TESTS WHEN DOCK CAPACITY IS 1
   # describe "#dock_bike" do
   #   it "raises an error when station is full " do
   #     # bike1 = Bike.new
