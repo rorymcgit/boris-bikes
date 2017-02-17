@@ -5,33 +5,27 @@ class DockingStation
 
   DEFAULT_CAPACITY = 20
 
-  attr_reader :bike
   attr_reader :capacity
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes_arr = []
-    @broken_bikes =[]
   end
 
   def release_bike
-    fail "no working bikes" if empty?
-    @bikes_arr.pop
+    fail "no bikes" if empty?
+    @bikes_arr.pop unless @bike.broken?
   end
 
-  def dock_bike(bike1, broken=false)
+  def dock_bike(bike)
   # This method will send error if 20 bikes have been docked
   # and it therefore cannot accept any more.
     fail "I iz full" if full?
-    @broken = broken
-     broken? ?  @broken_bikes << bike1 : @bikes_arr << bike1
+    @bike = bike
+    @bikes_arr << @bike
   end
 
   private
-    def broken?
-      @broken ? true : false
-    end
-
     def full?
       @bikes_arr.length >= @capacity ? true : false
     end

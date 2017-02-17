@@ -43,15 +43,17 @@ describe "#check_for_default" do
  describe "#broken_bike" do
    it "reports if broken", :broken do
      bike = Bike.new
-     hash_bike = subject.dock_bike(bike, true)[0]
-     expect(hash_bike[bike]).to eq true
+     bike.report_broken
+     expect(bike.broken?).to eq true
    end
  end
 
 describe "#refuse_bike_release" do
 it "doesn't release bike if bike broken", :bike_broken do
-  subject.dock_bike(Bike.new, true)
-  expect{subject.release_bike}.to raise_error "no working bikes"
+  bike = Bike.new
+  bike.report_broken
+  subject.dock_bike(bike)
+  expect(subject.release_bike).to eq(nil)
   end
   end
  end
