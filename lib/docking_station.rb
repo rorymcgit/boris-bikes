@@ -3,6 +3,8 @@ require_relative 'bike'
 class DockingStation
   # Docking station starts empty. Bike is created outside
 
+  DEFAULT_CAPACITY = 20
+
   attr_reader :bike
   attr_reader :bikes_arr
 
@@ -20,12 +22,11 @@ class DockingStation
   # and it therefore cannot accept any more.
     fail "I iz full" if full?
     @bikes_arr << bike1
-    @bike = bike1
   end
 
   private
     def full?
-      @bikes_arr.length >= 20 ? true : false
+      @bikes_arr.length >= DEFAULT_CAPACITY ? true : false
     end
 
     def empty?
