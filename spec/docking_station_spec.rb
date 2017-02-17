@@ -27,4 +27,16 @@ describe DockingStation do
     end
   end
 
+  describe "#capacity_checker" do
+  it " sets the capcity of the docking station to a new value", :tag do
+    station = DockingStation.new(50)
+    expect(station.capacity).to eq(50)
+   end
+ end
+describe "#check_for_default" do
+  it " returns the defualt value when no capcity set", :default do
+  station = DockingStation.new
+  expect(station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+  end
+ end
 end
