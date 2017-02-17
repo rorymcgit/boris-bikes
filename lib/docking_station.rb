@@ -18,11 +18,12 @@ class DockingStation
     @bikes_arr.pop
   end
 
-  def dock_bike(bike1)
+  def dock_bike(bike1, broken=false)
   # This method will send error if 20 bikes have been docked
   # and it therefore cannot accept any more.
     fail "I iz full" if full?
-    @bikes_arr << bike1
+    @broken = broken
+    @bikes_arr << {bike1 => @broken}
   end
 
   private

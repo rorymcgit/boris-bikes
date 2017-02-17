@@ -39,4 +39,14 @@ describe "#check_for_default" do
   expect(station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
   end
  end
+
+ describe "#broken_bike" do
+   it "reports if broken", :broken do
+     bike = Bike.new
+     hash_bike = subject.dock_bike(bike, true)[0]
+     expect(hash_bike[bike]).to eq true
+   end
+ end
+
+
 end
