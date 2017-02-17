@@ -59,7 +59,7 @@ describe DockingStation do
       19.times { subject.dock_bike(Bike.new) }
       bike20 = Bike.new
       subject.dock_bike(bike20)
-      expect(subject.num_bikes.length).to eq 20
+      expect(subject.bikes_arr.length).to eq 20
     end
   end
 end
