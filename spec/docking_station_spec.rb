@@ -48,5 +48,10 @@ describe "#check_for_default" do
    end
  end
 
-
-end
+describe "#refuse_bike_release" do
+it "doesn't release bike if bike broken", :bike_broken do
+  subject.dock_bike(Bike.new, true)
+  expect{subject.release_bike}.to raise_error "no working bikes"
+  end
+  end
+ end

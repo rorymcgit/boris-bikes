@@ -11,10 +11,11 @@ class DockingStation
   def initialize(capacity = DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes_arr = []
+    @broken_bikes =[]
   end
 
   def release_bike
-    fail "no bikes" if empty?
+    fail "no working bikes" if empty?
     @bikes_arr.pop
   end
 
@@ -23,10 +24,14 @@ class DockingStation
   # and it therefore cannot accept any more.
     fail "I iz full" if full?
     @broken = broken
-    @bikes_arr << {bike1 => @broken}
+     broken? ?  @broken_bikes << bike1 : @bikes_arr << bike1
   end
 
   private
+    def broken?
+      @broken ? true : false
+    end
+
     def full?
       @bikes_arr.length >= @capacity ? true : false
     end
