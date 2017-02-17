@@ -1,6 +1,7 @@
 require_relative 'bike'
 
 class DockingStation
+  # Docking station starts empty. Bike is created outside
 
     attr_reader :bike
     attr_reader :bikes_arr
