@@ -18,8 +18,6 @@ class DockingStation
   end
 
   def dock_bike(bike)
-  # This method will send error if 20 bikes have been docked
-  # and it therefore cannot accept any more.
     fail "I iz full" if full?
     @bike = bike
     @bikes_arr << @bike

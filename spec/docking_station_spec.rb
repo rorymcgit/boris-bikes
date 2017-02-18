@@ -28,28 +28,29 @@ describe DockingStation do
   end
 
   describe "#capacity_checker" do
-  it " sets the capcity of the docking station to a new value", :tag do
-    station = DockingStation.new(50)
-    expect(station.capacity).to eq(50)
+    it " sets the capcity of the docking station to a new value", :tag do
+      station = DockingStation.new(50)
+      expect(station.capacity).to eq(50)
+     end
    end
- end
-describe "#check_for_default" do
-  it " returns the defualt value when no capcity set", :default do
-  station = DockingStation.new
-  expect(station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+
+  describe "#check_for_default" do
+    it " returns the defualt value when no capcity set", :default do
+      station = DockingStation.new
+      expect(station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+    end
   end
- end
 
 
-describe "#refuse_bike_release" do
-  it "doesn't release bike if bike broken", :bike_broken do
-    bike = double(
-                   :report_broken => true,
-                   :working?      => false
-                   )
-    bike.report_broken
-    subject.dock_bike(bike)
-    expect(subject.release_bike).to eq(nil)
+  describe "#refuse_bike_release" do
+    it "doesn't release bike if bike broken", :bike_broken do
+      bike = double(
+                     :report_broken => true,
+                     :working?      => false
+                     )
+      bike.report_broken
+      subject.dock_bike(bike)
+      expect(subject.release_bike).to eq(nil)
     end
   end
 
