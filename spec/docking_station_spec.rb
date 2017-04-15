@@ -7,7 +7,6 @@ describe DockingStation do
 
   it { is_expected.to respond_to(:dock_bike).with(1).argument}
 
-  # let(:bike) { double :bike }
   it "shows the released bike is the same as what's been docked", :shows_whats_docked do
     bike = double(:working? => true)
     subject.dock_bike(bike)
@@ -23,19 +22,19 @@ describe DockingStation do
   describe "#full_bike" do
     it "raises an error when station is full", :tag do
       DockingStation::DEFAULT_CAPACITY.times { subject.dock_bike(double(:bike)) }
-      expect{ subject.dock_bike(double(:bike)) }.to raise_error "I iz full"
+      expect{ subject.dock_bike(double(:bike)) }.to raise_error "Docking station is full"
     end
   end
 
   describe "#capacity_checker" do
-    it " sets the capcity of the docking station to a new value", :tag do
+    it " sets the capacity of the docking station to a new value", :tag do
       station = DockingStation.new(50)
       expect(station.capacity).to eq(50)
      end
    end
 
   describe "#check_for_default" do
-    it " returns the defualt value when no capcity set", :default do
+    it " returns the default value when no capacity set", :default do
       station = DockingStation.new
       expect(station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
     end
@@ -48,7 +47,6 @@ describe DockingStation do
                      :report_broken => true,
                      :working?      => false
                      )
-      bike.report_broken
       subject.dock_bike(bike)
       expect(subject.release_bike).to eq(nil)
     end

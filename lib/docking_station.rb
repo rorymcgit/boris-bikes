@@ -1,7 +1,6 @@
 require_relative 'bike'
 
 class DockingStation
-  # Docking station starts empty. Bike is created outside
 
   DEFAULT_CAPACITY = 20
 
@@ -9,27 +8,27 @@ class DockingStation
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @capacity = capacity
-    @bikes_arr = []
+    @bikes = []
   end
 
   def release_bike
     fail "no bikes" if empty?
-    @bikes_arr.pop if @bike.working?
+    @bikes.pop if @bike.working?
   end
 
   def dock_bike(bike)
-    fail "I iz full" if full?
+    fail "Docking station is full" if full?
     @bike = bike
-    @bikes_arr << @bike
+    @bikes << @bike
   end
 
   private
-    def full?
-      @bikes_arr.length >= @capacity ? true : false
-    end
+  def full?
+    @bikes.length >= @capacity
+  end
 
-    def empty?
-      @bikes_arr.empty? ? true : false
-    end
+  def empty?
+    @bikes.empty?
+  end
 
 end
