@@ -1,4 +1,4 @@
-# Makers Academy - Boris Bikes Challenge (Week 1)
+# Boris Bike Docking Station System
 
 This project was written in week 1 of Makers Academy. We were tasked with emulating the Boris Bikes (Santander Cycles) docking/releasing system while pair programming using an object oriented, test-driven approach in Ruby.
 
